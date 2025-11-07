@@ -1,14 +1,18 @@
-from agent import get_response
+from agents.orchestrator import get_response
 
 
 def main():
     print("Welcome to StrategIQ")
-    print("Enter a prompt to get started")
+    print("Type 'exit' to end the conversation")
 
     while True:
-        prompt = input("Enter a prompt: ")
-        response = get_response(prompt)
-        print(response)
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            print("Thank you for visiting! Goodbye!")
+            break
+
+        response = get_response(user_input)
+        print(f"StrategIQ: {response}\n")
 
 
 if __name__ == "__main__":
